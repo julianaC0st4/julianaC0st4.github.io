@@ -1,0 +1,409 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lorem Ipsum</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #555;
+            background-color: #fff;
+            line-height: 1.6;
+            margin:0;
+            padding:0;
+        }
+
+        header {
+            position: relative;
+            background-image: url('file:///C:/Users/jujub/Downloads/images%20(1)/images/banner.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .titulo_header h1 {
+            font-size: 70px;
+            letter-spacing: 2px;
+            margin-bottom: 1px;
+        }
+
+        .titulo_header h4 {
+            font-size: 14px;
+            letter-spacing: 1px;
+            margin-bottom: 30px;
+            opacity: 0.8;
+            font-weight: normal;
+        }
+
+        .menu_header ul {
+            display: flex;
+            list-style: none;
+            gap: 15px;
+            margin: 0;
+            padding: 0;
+            align-items: center;
+        }
+
+        .menu_header a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 22px;
+            border-radius: 20px;
+            border: 1px solid transparent;
+        }
+
+            .menu_header a:hover,
+            .menu_header a.active {
+                font-weight: bold;
+                border: 1px solid white;
+            }
+
+        main {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px
+        }
+
+        .conteudo_superior {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .titulo_parte1 h2 {
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .imagem_parte1 img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            margin: 15px 0;
+        }
+
+        .texto_parte1 p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .titulo_parte2 {
+            display: flex;
+            font-size: 17px;
+            margin-bottom: 20px;
+            align-items: center;
+        }
+
+        .titulo_parte2 h4 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .parte1_parte2, .parte2_parte2, .parte3_parte2 {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            align-items: flex-start;
+        }
+
+        .parte2 img {
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .parte2 h5 {
+            color: #888;
+            font-size: 0.75rem;
+            margin-bottom: 5px;
+        }
+
+        .parte2 p {
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+
+        .parte3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 60px;
+            
+        }
+
+        .parte1_parte3, .parte2_parte3, .parte3_parte3 {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .parte3 h4 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        .parte3_container {
+            background-color: #f4f4f4;
+            width: 100%;
+            box-sizing: border-box;
+            padding: 60px 20px;
+            padding: 50px 0;
+        }
+
+        .parte3 img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+
+        .parte3 p {
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .botao_parte1 a, .botao_parte2 a, .botao_parte3 a {
+            display: inline-block;
+            background-color: #f25c3b;
+            color: white;
+            padding: 10px 22px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+            .botao_parte1 a:hover, .botao_parte2 a:hover, .botao_parte3 a:hover {
+                background-color: #d94b2b;
+            }
+
+        footer {
+            background-color: #1a1a1a;
+            color: #aaa;
+            padding: 50px 0;
+            width: 100%;
+        }
+
+        .footer_container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        footer h4 {
+            color: #fff;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        footer ul {
+            list-style: none;
+        }
+
+        footer li {
+            font-size: 0.85rem;
+            padding: 8px 0;
+        }
+
+        footer hr {
+            border: 0;
+            border-top: 1px solid #2a2a2a;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <section class="titulo_header">
+            <h1>LOREM IPSUM</h1>
+            <h4>DESIGN BY DUOROREM</h4>
+        </section>
+
+        <nav class="menu_header">
+            <ul>
+                <li><a href="#" class="active">HOMEPAGE</a></li>
+                <li><a href="#">LEFT SIDEBAR</a></li>
+                <li><a href="#">RIGHT SIDEBAR</a></li>
+                <li><a href="#">NO SIDEBAR</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Conteúdo Superior: Artigo Principal e Sidebar -->
+        <div class="conteudo_superior">
+            <section class="parte1">
+                <section class="titulo_parte1">
+                    <h2>WELCOME TO LOREM IPSUM</h2>
+                    <p>lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </section>
+
+                <section class="imagem_parte1">
+                    <img src="file:///C:\Users\jujub\Downloads\images (1)\images\pic07.jpg" alt="Imagem 1" />
+                </section>
+
+                <section class="texto_parte1">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit ab accusantium aliquid architecto aspernatur at atque beatae blanditiis commodi consequatur consequuntur corporis cumque cupiditate debitis delectus deleniti deserunt dicta dignissimos distinctio.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit ab accusantium aliquid architecto aspernatur at atque beatae blanditiis commodi consequatur consequuntur corporis cumque cupiditate debitis delectus deleniti deserunt dicta dignissimos distinctio.</p>
+                </section>
+            </section>
+
+            <aside class="parte2">
+                <section class="titulo_parte2">
+                    <h4>PELLENTESQUE VULPUTATE</h4>
+                </section>
+
+                <section class="parte1_parte2">
+                    <img src="file:///C:\Users\jujub\Downloads\images (1)\images\pic04.jpg" alt="imagem1_parte2" />
+                    <div>
+                        <h5>AUGUST 13. 2002 (10) COMMENTS</h5>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit ab accusantium aliquid architecto aspernatur at atque beatae blanditiis commodi consequatur consequuntur corporis cumque cupiditate debitis delectus deleniti deserunt dicta dignissimos distinctio.</p>
+                        <hr />
+                    </div>
+                </section>
+                
+                <section class="parte2_parte2">
+                    <img src="file:///C:\Users\jujub\Downloads\images (1)\images\pic05.jpg" alt="imagem2_parte2" />
+                    <div>
+                        <h5>AUGUST 13. 2002 (10) COMMENTS</h5>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit ab accusantium aliquid architecto aspernatur at atque beatae blanditiis commodi consequatur consequuntur corporis cumque cupiditate debitis delectus deleniti deserunt dicta dignissimos distinctio.</p>
+                        <hr />
+                    </div>
+                </section>
+
+                <section class="parte3_parte2">
+                    <img src="file:///C:\Users\jujub\Downloads\images (1)\images\pic06.jpg" alt="imagem3_parte2" />
+                    <div>
+                        <h5>AUGUST 13. 2002 (10) COMMENTS</h5>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit ab accusantium aliquid architecto aspernatur at atque beatae blanditiis commodi consequatur consequuntur corporis cumque cupiditate debitis delectus deleniti deserunt dicta dignissimos distinctio.</p>
+                        <hr />
+                    </div>
+                </section>
+            </aside>
+        </div>
+
+        <div class="parte3_container">
+            <section class="parte3">
+                <section class="parte1_parte3">
+                    <section class="titulo1_parte3">
+                        <h4>AENEAN ELEMENTUM FACILSIS</h4>
+                    </section>
+                    <section class="banner1_parte3">
+                        <img src="file:///C:\Users\jujub\Downloads\images (1)\images\pic01.jpg" alt="imagem1_parte3" />
+                    </section>
+                    <section class="texto1_parte3">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit ab accusantium aliquid architecto aspernatur at atque beatae blanditiis commodi consequatur consequuntur corporis cumque cupiditate debitis delectus deleniti deserunt dicta dignissimos distinctio.</p>
+                    </section>
+                    <section class="botao_parte1">
+                        <a href="#">MORE DETAILS</a>
+                    </section>
+                </section>
+
+                <section class="parte2_parte3">
+                    <section class="titulo2_parte3">
+                        <h4>FUSCE ULTRICES FRINGILLA</h4>
+                    </section>
+                    <section class="banner2_parte3">
+                        <img src="file:///C:\Users\jujub\Downloads\images (1)\images\pic02.jpg" alt="imagem2_parte3 " />
+                    </section>
+                    <section class="texto2_parte3">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit ab accusantium aliquid architecto aspernatur at atque beatae blanditiis commodi consequatur consequuntur corporis cumque cupiditate debitis delectus deleniti deserunt dicta dignissimos distinctio.</p>
+                    </section>
+                    <section class="botao_parte2">
+                        <a href="#">MORE DETAILS</a>
+                    </section>
+                </section>
+
+                <section class="parte3_parte3">
+                    <section class="titulo3_parte3">
+                        <h4>ETIAM RHONCUS VOLUTPAT ERAT</h4>
+                    </section>
+                    <section class="banner3_parte3">
+                        <img src="file:///C:\Users\jujub\Downloads\images (1)\images\pic03.jpg" alt="imagem3_parte3 " />
+                    </section>
+                    <section class="texto3_parte3">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit ab accusantium aliquid architecto aspernatur at atque beatae blanditiis commodi consequatur consequuntur corporis cumque cupiditate debitis delectus deleniti deserunt dicta dignissimos distinctio.</p>
+                    </section>
+                    <section class="botao_parte3">
+                        <a href="#">MORE DETAILS</a>
+                    </section>
+                </section>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer_container">
+            <section class="footer1">
+                <section class="titulo1_footer">
+                    <h4>LATEST POSTS</h4>
+                </section>
+                <section class="texto1_footer">
+                    <ul>
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+                        <li><hr /></li>
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+                        <li><hr /></li>
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+                    </ul>
+                </section>
+            </section>
+
+            <section class="footer2">
+                <section class="titulo2_footer">
+                    <h4>LATEST POSTS</h4>
+                </section>
+                <section class="texto2_footer">
+                    <ul>
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+                        <li><hr /></li>
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+                        <li><hr /></li>
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+                    </ul>
+                </section>
+            </section>
+
+            <section class="footer3">
+                <section class="titulo3_footer">
+                    <h4>LATEST POSTS</h4>
+                </section>
+                <section class="texto3_footer">
+                    <ul>
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+                        <li><hr /></li>
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+                        <li><hr /></li>
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+                    </ul>
+                </section>
+            </section>
+        </div>
+    </footer>
+
+</body>
+</html>
