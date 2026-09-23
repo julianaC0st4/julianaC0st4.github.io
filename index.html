@@ -2,407 +2,517 @@
 <html lang="pt-br">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lorem Ipsum</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Momentos perfeitos</title>
     <style>
+        /* ---------- Base ---------- */
+        :root {
+            --cinza-claro: #f2f2f2;
+            --cinza-fundo: #f7f7f7;
+            --cinza-caixa: #cccccc;
+            --cinza-linha: #999999;
+            --cinza-texto: #888888;
+            --escuro: #4a4a4a;
+            --texto: #222222;
+            --borda: #d0d0d0;
+        }
+
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
 
         body {
-            font-family: Arial, sans-serif;
-            color: #555;
-            background-color: #fff;
-            line-height: 1.6;
-            margin:0;
-            padding:0;
-        }
-
-        header {
-            position: relative;
-            background-image: url('banner.jpg');
-            background-size: cover;
-            background-position: center;
-            height: 400px;
-            color: white;
-            padding: 20px;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .titulo_header h1 {
-            font-size: 70px;
-            letter-spacing: 2px;
-            margin-bottom: 1px;
-        }
-
-        .titulo_header h4 {
-            font-size: 14px;
-            letter-spacing: 1px;
-            margin-bottom: 30px;
-            opacity: 0.8;
-            font-weight: normal;
-        }
-
-        .menu_header ul {
-            display: flex;
-            list-style: none;
-            gap: 15px;
-            margin: 0;
-            padding: 0;
-            align-items: center;
-        }
-
-        .menu_header a {
-            color: white;
-            text-decoration: none;
-            padding: 8px 22px;
-            border-radius: 20px;
-            border: 1px solid transparent;
-        }
-
-            .menu_header a:hover,
-            .menu_header a.active {
-                font-weight: bold;
-                border: 1px solid white;
-            }
-
-        main {
-            max-width: 1100px;
-            margin: 40px auto;
-            padding: 0 20px
-        }
-
-        .conteudo_superior {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 40px;
-            margin-bottom: 50px;
-        }
-
-        .titulo_parte1 h2 {
-            color: #333;
-            margin-bottom: 5px;
-        }
-
-        .imagem_parte1 img {
-            width: 100%;
-            height: auto;
-            border-radius: 4px;
-            margin: 15px 0;
-        }
-
-        .texto_parte1 p {
-            margin-bottom: 15px;
-            text-align: justify;
-        }
-
-        .titulo_parte2 {
-            display: flex;
-            font-size: 17px;
-            margin-bottom: 20px;
-            align-items: center;
-        }
-
-        .titulo_parte2 h4 {
-            color: #333;
-            margin-bottom: 20px;
-        }
-
-        .parte1_parte2, .parte2_parte2, .parte3_parte2 {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 20px;
-            align-items: flex-start;
-        }
-
-        .parte2 img {
-            width: 70px;
-            height: 70px;
-            object-fit: cover;
-            border-radius: 4px;
-        }
-
-        .parte2 h5 {
-            color: #888;
-            font-size: 0.75rem;
-            margin-bottom: 5px;
-        }
-
-        .parte2 p {
-            font-size: 0.85rem;
+            font-family: "Segoe UI", "Open Sans", Arial, sans-serif;
+            color: var(--texto);
+            background: #fff;
             line-height: 1.4;
         }
 
-        .parte3 {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin-bottom: 60px;
-            
-        }
-
-        .parte1_parte3, .parte2_parte3, .parte3_parte3 {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-
-        .parte3 h4 {
-            color: #333;
-            margin-bottom: 10px;
-            font-size: 1rem;
-        }
-
-        .parte3_container {
-            background-color: #f4f4f4;
-            width: 100%;
-            box-sizing: border-box;
-            padding: 60px 20px;
-            padding: 50px 0;
-        }
-
-        .parte3 img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            border-radius: 4px;
-            margin-bottom: 15px;
-        }
-
-        .parte3 p {
-            font-size: 0.9rem;
-            margin-bottom: 15px;
-        }
-
-        .botao_parte1 a, .botao_parte2 a, .botao_parte3 a {
-            display: inline-block;
-            background-color: #f25c3b;
-            color: white;
-            padding: 10px 22px;
-            border-radius: 20px;
+        a {
+            color: inherit;
             text-decoration: none;
-            font-size: 0.8rem;
-            font-weight: bold;
-            transition: background-color 0.3s;
         }
 
-            .botao_parte1 a:hover, .botao_parte2 a:hover, .botao_parte3 a:hover {
-                background-color: #d94b2b;
-            }
-
-        footer {
-            background-color: #1a1a1a;
-            color: #aaa;
-            padding: 50px 0;
-            width: 100%;
-        }
-
-        .footer_container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
-
-        footer h4 {
-            color: #fff;
-            margin-bottom: 15px;
-            font-size: 0.9rem;
-        }
-
-        footer ul {
+        ul {
             list-style: none;
         }
 
-        footer li {
-            font-size: 0.85rem;
-            padding: 8px 0;
+        /* Placeholder de imagem com o "X" do wireframe (aparece se a imagem faltar) */
+        .caixa-imagem,
+        .navegador,
+        .foto-perfil,
+        .caixa-icone {
+            background: linear-gradient(to top right, transparent calc(50% - 1px), var(--cinza-linha) calc(50% - 1px), var(--cinza-linha) calc(50% + 1px), transparent calc(50% + 1px)), linear-gradient(to top left, transparent calc(50% - 1px), var(--cinza-linha) calc(50% - 1px), var(--cinza-linha) calc(50% + 1px), transparent calc(50% + 1px)), var(--cinza-caixa);
         }
 
-        footer hr {
+        .caixa-imagem {
+            width: 100%;
+            height: 130px;
+            border: 1px solid var(--cinza-linha);
+            overflow: hidden;
+        }
+
+            /* Imagens preenchem as caixas sem deformar */
+            .caixa-imagem img,
+            .foto-perfil img,
+            .caixa-icone img {
+                display: block;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+        .legenda-imagem {
+            display: block;
+            margin-top: 8px;
+            font-size: 12px;
+            color: var(--cinza-texto);
+        }
+
+        .botao a,
+        .botao-plano,
+        .search-button {
+            display: inline-block;
+            background: var(--escuro);
+            color: #fff;
             border: 0;
-            border-top: 1px solid #2a2a2a;
+            padding: 8px 20px;
+            font: inherit;
+            font-size: 12px;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+
+            .botao a:hover, .botao-plano:hover, .search-button:hover {
+                background: #2e2e2e;
+            }
+
+        :focus-visible {
+            outline: 2px solid #1a73e8;
+            outline-offset: 2px;
+        }
+
+        /* ---------- Menu ---------- */
+        .menu {
+            background: var(--cinza-claro);
+            padding: 0 22px;
+        }
+
+            .menu ul {
+                display: flex;
+                gap: 26px;
+            }
+
+            .menu a {
+                display: block;
+                padding: 10px 0;
+                font-size: 12px;
+                color: var(--cinza-texto);
+            }
+
+                .menu a:hover {
+                    color: var(--texto);
+                }
+
+        /* ---------- Hero (imagem de fundo com o X como reserva) ---------- */
+        .navegador {
+            padding: 34px 18px 20px;
+            background: url('vitrine.png') center / cover no-repeat, linear-gradient(to top right, transparent calc(50% - 1px), var(--cinza-linha) calc(50% - 1px), var(--cinza-linha) calc(50% + 1px), transparent calc(50% + 1px)), linear-gradient(to top left, transparent calc(50% - 1px), var(--cinza-linha) calc(50% - 1px), var(--cinza-linha) calc(50% + 1px), transparent calc(50% + 1px)), var(--cinza-caixa);
+        }
+
+            .navegador h1 {
+                font-size: 46px;
+                font-weight: 300;
+                line-height: 1.1;
+            }
+
+            .navegador h4 {
+                font-size: 15px;
+                font-weight: 400;
+                margin-bottom: 14px;
+            }
+
+        .search-form {
+            display: flex;
+        }
+
+        .search-input {
+            flex: 1;
+            height: 25px;
+            border: 1px solid var(--cinza-linha);
+            background: #fff;
+            padding: 0 8px;
+            font: inherit;
+        }
+
+        .search-button {
+            margin-left: 14px;
+            padding: 0 12px;
+            height: 25px;
+        }
+
+        /* ---------- Galeria ---------- */
+        .galeria {
+            padding: 44px 20px 30px;
+        }
+
+        .titulo-galeria {
+            text-align: center;
+            font-size: 16px;
+            font-weight: 400;
+        }
+
+        .subtitulo-galeria {
+            text-align: center;
+            font-size: 11px;
+            color: var(--cinza-texto);
+            margin-bottom: 20px;
+        }
+
+        .imagem-galeria {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px 28px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .item-galeria:nth-child(3n) {
+            margin-top: -4px;
+        }
+
+            .item-galeria:nth-child(3n) .caixa-imagem {
+                height: 126px;
+            }
+
+        /* ---------- Hall da fama ---------- */
+        .hall {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 32px;
+            align-items: center;
+            background: var(--cinza-fundo);
+            border: 1px solid var(--borda);
+            padding: 34px 24px 40px;
+            margin-top: 20px;
+        }
+
+            .hall h2 {
+                font-size: 38px;
+                font-weight: 300;
+                color: var(--cinza-texto);
+            }
+
+            .hall p {
+                font-size: 11px;
+                color: var(--cinza-texto);
+                margin: 10px 0 14px;
+            }
+
+        .imagem-hall .caixa-imagem {
+            height: 230px;
+        }
+
+        .imagem-hall .legenda-imagem {
+            font-size: 14px;
+            margin-top: 12px;
+        }
+
+      
+        /* ---------- Reviews ---------- */
+        .reviews {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px 60px;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+
+       
+        .titulo-reviews {
+            grid-column: 1 / -1;
+            font-size: 22px;
+            font-weight: 300;
+            color: var(--cinza-texto);
+            margin-bottom: -4px;
+        }
+
+        .cartao-avaliacao {
+            display: flex;
+            gap: 14px;
+            align-items: center;
+        }
+
+            .cartao-avaliacao:nth-child(odd) {
+                margin-top: 0;
+            }
+
+            .cartao-avaliacao:nth-child(even) {
+                margin-top: 10px;
+            }
+
+        .foto-perfil {
+            flex: 0 0 36px;
+            height: 36px;
+            border: 1px solid var(--cinza-linha);
+            overflow: hidden;
+        }
+
+        .nome-utilizador {
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--cinza-texto);
+        }
+
+        .texto-avaliacao {
+            font-size: 9px;
+            color: var(--cinza-texto);
+            max-width: 230px;
+        }
+
+        
+        /* ---------- Planos ---------- */
+        .planos {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px 20px 30px;
+            text-align: center;
+        }
+
+        .lista-beneficios {
+            max-width: 220px;
+            margin: 0 auto;
+        }
+
+        .titulo-planos {
+            grid-column: 1 / -1;
+            font-size: 20px;
+            font-weight: 300;
+            color: var(--cinza-texto);
+            text-align: left;
+        }
+
+        .nome-plano {
+            font-size: 17px;
+            font-weight: 300;
+            text-transform: uppercase;
+            color: var(--cinza-texto);
+        }
+
+        .preco-plano {
+            font-size: 20px;
+            color: var(--cinza-texto);
+            margin: 8px 0 12px;
+        }
+
+        .item-beneficio {
+            border: 1px solid var(--borda);
+            padding: 5px;
+            font-size: 12px;
+            color: var(--cinza-texto);
+            margin-bottom: -1px;
+        }
+
+        .botao-plano {
+            margin-top: 16px;
+            padding: 6px 30px;
+        }
+
+        /* ---------- Footer ---------- */
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--borda);
+            padding: 20px 18px;
+            margin-top: 10px;
+        }
+
+        .texto-copyright {
+            font-size: 11px;
+            color: var(--cinza-texto);
+        }
+
+        .icones-redes-sociais {
+            display: flex;
+            gap: 6px;
+        }
+
+        .caixa-icone {
+            width: 18px;
+            height: 18px;
+            border: 1px solid var(--cinza-linha);
+            overflow: hidden;
+        }
+
+        /* ---------- Mobile ---------- */
+        @media (max-width: 720px) {
+            .imagem-galeria, .hall, .reviews, .planos {
+                grid-template-columns: 1fr;
+            }
+
+            .item-galeria:nth-child(3n), .cartao-avaliacao:nth-child(even) {
+                margin-top: 0;
+            }
+
+            .navegador h1 {
+                font-size: 34px;
+            }
+
+            .texto-avaliacao {
+                max-width: none;
+            }
         }
     </style>
 </head>
-
 <body>
-
     <header>
-        <section class="titulo_header">
-            <h1>LOREM IPSUM</h1>
-            <h4>DESIGN BY DUOROREM</h4>
-        </section>
-
-        <nav class="menu_header">
+        <section class="menu">
             <ul>
-                <li><a href="#" class="active">HOMEPAGE</a></li>
-                <li><a href="#">LEFT SIDEBAR</a></li>
-                <li><a href="#">RIGHT SIDEBAR</a></li>
-                <li><a href="#">NO SIDEBAR</a></li>
+                <li><a href="#">Logo</a></li>
+                <li><a href="#">Descubra</a></li>
+                <li><a href="#">Preços</a></li>
+                <li><a href="#">Cadastre-se</a></li>
+                <li><a href="#">Login</a></li>
             </ul>
-        </nav>
+        </section>
+        <section class="navegador">
+            <h1>Momentos perfeitos</h1>
+            <h4>Lorem ipsum dolor</h4>
+            <form action="#" method="GET" class="search-form">
+                <input type="search" name="q" placeholder="Pesquisar..." class="search-input" aria-label="Pesquisar" required>
+                <button type="submit" class="search-button">Pesquisar</button>
+            </form>
+        </section>
     </header>
 
     <main>
-        <div class="conteudo_superior">
-            <section class="parte1">
-                <section class="titulo_parte1">
-                    <h2>WELCOME TO LOREM IPSUM</h2>
-                    <p>lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </section>
+        <div class="galeria">
+            <h2 class="titulo-galeria">Imagens bonitas, lindas e perfeitas</h2>
+            <p class="subtitulo-galeria">Lorem ipsum dolor emet aset</p>
 
-                <section class="imagem_parte1">
-                    <img src="pic07.jpg" alt="Imagem 1" />
-                </section>
-
-                <section class="texto_parte1">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit ab accusantium aliquid architecto aspernatur at atque beatae blanditiis commodi consequatur consequuntur corporis cumque cupiditate debitis delectus deleniti deserunt dicta dignissimos distinctio.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit ab accusantium aliquid architecto aspernatur at atque beatae blanditiis commodi consequatur consequuntur corporis cumque cupiditate debitis delectus deleniti deserunt dicta dignissimos distinctio.</p>
-                </section>
-            </section>
-
-            <aside class="parte2">
-                <section class="titulo_parte2">
-                    <h4>PELLENTESQUE VULPUTATE</h4>
-                </section>
-
-                <section class="parte1_parte2">
-                    <img src="pic04.jpg" alt="imagem1_parte2" />
-                    <div>
-                        <h5>AUGUST 13. 2002 (10) COMMENTS</h5>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit ab accusantium aliquid architecto aspernatur at atque beatae blanditiis commodi consequatur consequuntur corporis cumque cupiditate debitis delectus deleniti deserunt dicta dignissimos distinctio.</p>
-                        <hr />
-                    </div>
-                </section>
-                
-                <section class="parte2_parte2">
-                    <img src="pic05.jpg" alt="imagem2_parte2" />
-                    <div>
-                        <h5>AUGUST 13. 2002 (10) COMMENTS</h5>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit ab accusantium aliquid architecto aspernatur at atque beatae blanditiis commodi consequatur consequuntur corporis cumque cupiditate debitis delectus deleniti deserunt dicta dignissimos distinctio.</p>
-                        <hr />
-                    </div>
-                </section>
-
-                <section class="parte3_parte2">
-                    <img src="pic06.jpg" alt="imagem3_parte2" />
-                    <div>
-                        <h5>AUGUST 13. 2002 (10) COMMENTS</h5>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit ab accusantium aliquid architecto aspernatur at atque beatae blanditiis commodi consequatur consequuntur corporis cumque cupiditate debitis delectus deleniti deserunt dicta dignissimos distinctio.</p>
-                        <hr />
-                    </div>
-                </section>
-            </aside>
+            <div class="imagem-galeria">
+                <div class="item-galeria">
+                    <div class="caixa-imagem"><img src="sunset.jpg" alt="Imagem 1 da galeria"></div>
+                    <span class="legenda-imagem">Lorem ipsum</span>
+                </div>
+                <div class="item-galeria">
+                    <div class="caixa-imagem"><img src="pipoca.jpg" alt="Imagem 2 da galeria"></div>
+                    <span class="legenda-imagem">Lorem ipsum</span>
+                </div>
+                <div class="item-galeria">
+                    <div class="caixa-imagem"><img src="mesa-designer.jpg" alt="Imagem 3 da galeria"></div>
+                    <span class="legenda-imagem">Lorem ipsum</span>
+                </div>
+                <div class="item-galeria">
+                    <div class="caixa-imagem"><img src="girassois.jpg" alt="Imagem 4 da galeria"></div>
+                    <span class="legenda-imagem">Lorem ipsum</span>
+                </div>
+                <div class="item-galeria">
+                    <div class="caixa-imagem"><img src="garota-silhueta.jpg" alt="Imagem 5 da galeria"></div>
+                    <span class="legenda-imagem">Lorem ipsum</span>
+                </div>
+                <div class="item-galeria">
+                    <div class="caixa-imagem"><img src="garota-feliz.jpg" alt="Imagem 6 da galeria"></div>
+                    <span class="legenda-imagem">Lorem ipsum</span>
+                </div>
+            </div>
         </div>
 
-        <div class="parte3_container">
-            <section class="parte3">
-                <section class="parte1_parte3">
-                    <section class="titulo1_parte3">
-                        <h4>AENEAN ELEMENTUM FACILSIS</h4>
-                    </section>
-                    <section class="banner1_parte3">
-                        <img src="pic01.jpg" alt="imagem1_parte3" />
-                    </section>
-                    <section class="texto1_parte3">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit ab accusantium aliquid architecto aspernatur at atque beatae blanditiis commodi consequatur consequuntur corporis cumque cupiditate debitis delectus deleniti deserunt dicta dignissimos distinctio.</p>
-                    </section>
-                    <section class="botao_parte1">
-                        <a href="#">MORE DETAILS</a>
-                    </section>
-                </section>
+        <div class="hall">
+            <div class="texto-hall">
+                <h2>Hall da fama</h2>
+                <p>Lorem ipsum dolor aset ernet dolor imi</p>
+                <nav class="botao"><a href="#">VOTE</a></nav>
+            </div>
+            <div class="imagem-hall">
+                <div class="caixa-imagem"><img src="img/hall.jpg" alt="Destaque do hall da fama"></div>
+                <span class="legenda-imagem">Lorem ipsum</span>
+            </div>
+        </div>
 
-                <section class="parte2_parte3">
-                    <section class="titulo2_parte3">
-                        <h4>FUSCE ULTRICES FRINGILLA</h4>
-                    </section>
-                    <section class="banner2_parte3">
-                        <img src="pic02.jpg" alt="imagem2_parte3 " />
-                    </section>
-                    <section class="texto2_parte3">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit ab accusantium aliquid architecto aspernatur at atque beatae blanditiis commodi consequatur consequuntur corporis cumque cupiditate debitis delectus deleniti deserunt dicta dignissimos distinctio.</p>
-                    </section>
-                    <section class="botao_parte2">
-                        <a href="#">MORE DETAILS</a>
-                    </section>
-                </section>
+        <div class="reviews">
+            <h2 class="titulo-reviews">Reviews</h2>
 
-                <section class="parte3_parte3">
-                    <section class="titulo3_parte3">
-                        <h4>ETIAM RHONCUS VOLUTPAT ERAT</h4>
-                    </section>
-                    <section class="banner3_parte3">
-                        <img src="pic03.jpg" alt="imagem3_parte3 " />
-                    </section>
-                    <section class="texto3_parte3">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit ab accusantium aliquid architecto aspernatur at atque beatae blanditiis commodi consequatur consequuntur corporis cumque cupiditate debitis delectus deleniti deserunt dicta dignissimos distinctio.</p>
-                    </section>
-                    <section class="botao_parte3">
-                        <a href="#">MORE DETAILS</a>
-                    </section>
-                </section>
-            </section>
+            <div class="cartao-avaliacao">
+                <div class="foto-perfil"><img src="img/perfil1.jpg" alt="Foto de Fulano Souza"></div>
+                <div class="conteudo-avaliacao">
+                    <h3 class="nome-utilizador">Fulano Souza</h3>
+                    <p class="texto-avaliacao">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nesciunt, dolore, consequatur? Sint odit ad impedit harum animi! Facilis quibusdam quod velit veniam corporis quasi, quas praesentium ad</p>
+                </div>
+            </div>
+            <div class="cartao-avaliacao">
+                <div class="foto-perfil"><img src="img/perfil2.jpg" alt="Foto de Fulano Souza"></div>
+                <div class="conteudo-avaliacao">
+                    <h3 class="nome-utilizador">Fulano Souza</h3>
+                    <p class="texto-avaliacao">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nesciunt, dolore, consequatur? Sint odit ad impedit harum animi! Facilis quibusdam quod velit veniam corporis quasi, quas praesentium ad</p>
+                </div>
+            </div>
+            <div class="cartao-avaliacao">
+                <div class="foto-perfil"><img src="img/perfil3.jpg" alt="Foto de Fulano Souza"></div>
+                <div class="conteudo-avaliacao">
+                    <h3 class="nome-utilizador">Fulano Souza</h3>
+                    <p class="texto-avaliacao">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nesciunt, dolore, consequatur? Sint odit ad impedit harum animi! Facilis quibusdam quod velit veniam corporis quasi, quas praesentium ad</p>
+                </div>
+            </div>
+            <div class="cartao-avaliacao">
+                <div class="foto-perfil"><img src="img/perfil4.jpg" alt="Foto de Fulano Souza"></div>
+                <div class="conteudo-avaliacao">
+                    <h3 class="nome-utilizador">Fulano Souza</h3>
+                    <p class="texto-avaliacao">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nesciunt, dolore, consequatur? Sint odit ad impedit harum animi! Facilis quibusdam quod velit veniam corporis quasi, quas praesentium ad</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="planos">
+            <h2 class="titulo-planos">Planos para todos os bolsos:</h2>
+
+            <div class="cartao-plano">
+                <h3 class="nome-plano">Silver</h3>
+                <div class="preco-plano">R$ 9,99</div>
+                <div class="lista-beneficios">
+                    <div class="item-beneficio">3x lorem</div>
+                    <div class="item-beneficio">3x lorem</div>
+                    <div class="item-beneficio">3x lorem</div>
+                </div>
+                <button class="botao-plano">Ok</button>
+            </div>
+            <div class="cartao-plano">
+                <h3 class="nome-plano">Crystal</h3>
+                <div class="preco-plano">R$ 9,99</div>
+                <div class="lista-beneficios">
+                    <div class="item-beneficio">3x lorem</div>
+                    <div class="item-beneficio">3x lorem</div>
+                    <div class="item-beneficio">3x lorem</div>
+                </div>
+                <button class="botao-plano">Ok</button>
+            </div>
+            <div class="cartao-plano">
+                <h3 class="nome-plano">Gold</h3>
+                <div class="preco-plano">R$ 9,99</div>
+                <div class="lista-beneficios">
+                    <div class="item-beneficio">3x lorem</div>
+                    <div class="item-beneficio">3x lorem</div>
+                    <div class="item-beneficio">3x lorem</div>
+                </div>
+                <button class="botao-plano">Ok</button>
+            </div>
         </div>
     </main>
 
-    <footer>
-        <div class="footer_container">
-            <section class="footer1">
-                <section class="titulo1_footer">
-                    <h4>LATEST POSTS</h4>
-                </section>
-                <section class="texto1_footer">
-                    <ul>
-                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-                        <li><hr /></li>
-                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-                        <li><hr /></li>
-                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-                    </ul>
-                </section>
-            </section>
-
-            <section class="footer2">
-                <section class="titulo2_footer">
-                    <h4>LATEST POSTS</h4>
-                </section>
-                <section class="texto2_footer">
-                    <ul>
-                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-                        <li><hr /></li>
-                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-                        <li><hr /></li>
-                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-                    </ul>
-                </section>
-            </section>
-
-            <section class="footer3">
-                <section class="titulo3_footer">
-                    <h4>LATEST POSTS</h4>
-                </section>
-                <section class="texto3_footer">
-                    <ul>
-                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-                        <li><hr /></li>
-                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-                        <li><hr /></li>
-                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-                    </ul>
-                </section>
-            </section>
+    <footer class="footer">
+        <span class="texto-copyright">Copyright 2019</span>
+        <div class="icones-redes-sociais">
+            <div class="caixa-icone"><img src="icone-insta.png" alt="Instagram"></div>
+            <div class="caixa-icone"><img src="icone-face.png" alt="Facebook"></div>
+            <div class="caixa-icone"><img src="icone-twitter.png" alt="Twitter"></div>
         </div>
     </footer>
-
 </body>
 </html>
