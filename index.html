@@ -1,508 +1,155 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Momentos perfeitos</title>
-    <style>
-        /* ---------- Base ---------- */
-        :root {
-            --cinza-claro: #f2f2f2;
-            --cinza-fundo: #f7f7f7;
-            --cinza-caixa: #cccccc;
-            --cinza-linha: #999999;
-            --cinza-texto: #888888;
-            --escuro: #4a4a4a;
-            --texto: #222222;
-            --borda: #d0d0d0;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: "Segoe UI", "Open Sans", Arial, sans-serif;
-            color: var(--texto);
-            background: #fff;
-            line-height: 1.4;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        .caixa-imagem {
-            width: 100%;
-            height: 130px;
-            border: 1px solid var(--cinza-linha);
-            overflow: hidden;
-        }
-
-            /* Imagens preenchem as caixas sem deformar */
-            .caixa-imagem img,
-            .foto-perfil img,
-            .caixa-icone img {
-                display: block;
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
-
-        .legenda-imagem {
-            display: block;
-            margin-top: 8px;
-            font-size: 12px;
-            color: var(--cinza-texto);
-        }
-
-        .botao a,
-        .botao-plano,
-        .search-button {
-            display: inline-block;
-            background: var(--escuro);
-            color: #fff;
-            border: 0;
-            padding: 8px 20px;
-            font: inherit;
-            font-size: 12px;
-            text-transform: uppercase;
-            cursor: pointer;
-        }
-
-            .botao a:hover, .botao-plano:hover, .search-button:hover {
-                background: #2e2e2e;
-            }
-
-        :focus-visible {
-            outline: 2px solid #1a73e8;
-            outline-offset: 2px;
-        }
-
-        /* ---------- Menu ---------- */
-        .menu {
-            background: var(--cinza-claro);
-            padding: 0 22px;
-        }
-
-            .menu ul {
-                display: flex;
-                gap: 26px;
-            }
-
-            .menu a {
-                display: block;
-                padding: 10px 0;
-                font-size: 12px;
-                color: var(--cinza-texto);
-            }
-
-                .menu a:hover {
-                    color: var(--texto);
-                }
-
-        /* ---------- Hero (imagem de fundo com o X como reserva) ---------- */
-        .navegador {
-            padding: 34px 18px 20px;
-            background: url('img/img/vitrine.jpg') center / cover no-repeat, linear-gradient(to top right, transparent calc(50% - 1px), var(--cinza-linha) calc(50% - 1px), var(--cinza-linha) calc(50% + 1px), transparent calc(50% + 1px)), linear-gradient(to top left, transparent calc(50% - 1px), var(--cinza-linha) calc(50% - 1px), var(--cinza-linha) calc(50% + 1px), transparent calc(50% + 1px)), var(--cinza-caixa);
-        }
-
-            .navegador h1 {
-                font-size: 46px;
-                font-weight: 300;
-                line-height: 1.1;
-            }
-
-            .navegador h4 {
-                font-size: 15px;
-                font-weight: 400;
-                margin-bottom: 14px;
-            }
-
-        .search-form {
-            display: flex;
-        }
-
-        .search-input {
-            flex: 1;
-            height: 25px;
-            border: 1px solid var(--cinza-linha);
-            background: #fff;
-            padding: 0 8px;
-            font: inherit;
-        }
-
-        .search-button {
-            margin-left: 14px;
-            padding: 0 12px;
-            height: 25px;
-        }
-
-        /* ---------- Galeria ---------- */
-        .galeria {
-            padding: 44px 20px 30px;
-        }
-
-        .titulo-galeria {
-            text-align: center;
-            font-size: 16px;
-            font-weight: 400;
-        }
-
-        .subtitulo-galeria {
-            text-align: center;
-            font-size: 11px;
-            color: var(--cinza-texto);
-            margin-bottom: 20px;
-        }
-
-        .imagem-galeria {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px 28px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .item-galeria:nth-child(3n) {
-            margin-top: -4px;
-        }
-
-            .item-galeria:nth-child(3n) .caixa-imagem {
-                height: 126px;
-            }
-
-        /* ---------- Hall da fama ---------- */
-        .hall {
-        display: grid;
-        grid-template-columns: 1fr 2fr;
-        gap: 32px;
-        align-items: center;
-        background: var(--cinza-fundo);
-        border: 1px solid var(--borda);
-        padding: 34px 24px 40px;
-        margin: 20px auto 0; 
-        max-width: 1000px;  
-    }
-
-            .hall h2 {
-                font-size: 38px;
-                font-weight: 300;
-                color: var(--cinza-texto);
-            }
-
-            .hall p {
-                font-size: 11px;
-                color: var(--cinza-texto);
-                margin: 10px 0 14px;
-            }
-
-        .imagem-hall .caixa-imagem {
-            height: 230px;
-        }
-
-        .imagem-hall .legenda-imagem {
-            font-size: 14px;
-            margin-top: 12px;
-        }
-
-        /* ---------- Reviews ---------- */
-        .reviews {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 24px 60px;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 30px 20px;
-        }
-
-        .titulo-reviews {
-            grid-column: 1 / -1;
-            font-size: 22px;
-            font-weight: 300;
-            color: var(--cinza-texto);
-            margin-bottom: -4px;
-        }
-
-        .cartao-avaliacao {
-            display: flex;
-            gap: 14px;
-            align-items: center;
-        }
-
-            .cartao-avaliacao:nth-child(odd) {
-                margin-top: 0;
-            }
-
-            .cartao-avaliacao:nth-child(even) {
-                margin-top: 10px;
-            }
-
-        .foto-perfil {
-            flex: 0 0 36px;
-            height: 36px;
-            border: 1px solid var(--cinza-linha);
-            overflow: hidden;
-        }
-
-        .nome-utilizador {
-            font-size: 14px;
-            font-weight: 400;
-            color: var(--cinza-texto);
-        }
-
-        .texto-avaliacao {
-            font-size: 9px;
-            color: var(--cinza-texto);
-            max-width: 230px;
-        }
-
-        /* ---------- Planos ---------- */
-        .planos {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px 30px;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 20px 20px 30px;
-            text-align: center;
-        }
-
-        .lista-beneficios {
-            max-width: 220px;
-            margin: 0 auto;
-        }
-
-        .titulo-planos {
-            grid-column: 1 / -1;
-            font-size: 20px;
-            font-weight: 300;
-            color: var(--cinza-texto);
-            text-align: left;
-        }
-
-        .nome-plano {
-            font-size: 17px;
-            font-weight: 300;
-            text-transform: uppercase;
-            color: var(--cinza-texto);
-        }
-
-        .preco-plano {
-            font-size: 20px;
-            color: var(--cinza-texto);
-            margin: 8px 0 12px;
-        }
-
-        .item-beneficio {
-            border: 1px solid var(--borda);
-            padding: 5px;
-            font-size: 12px;
-            color: var(--cinza-texto);
-            margin-bottom: -1px;
-        }
-
-        .botao-plano {
-            margin-top: 16px;
-            padding: 6px 30px;
-        }
-
-        /* ---------- Footer ---------- */
-        .footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-top: 1px solid var(--borda);
-            padding: 20px 18px;
-            margin-top: 10px;
-        }
-
-        .texto-copyright {
-            font-size: 11px;
-            color: var(--cinza-texto);
-        }
-
-        .icones-redes-sociais {
-            display: flex;
-            gap: 6px;
-        }
-
-        .caixa-icone {
-            width: 18px;
-            height: 18px;
-            border: none;
-            overflow: hidden;
-        }
-
-        /* ---------- Mobile ---------- */
-        @media (max-width: 720px) {
-            .imagem-galeria, .hall, .reviews, .planos {
-                grid-template-columns: 1fr;
-            }
-
-            .item-galeria:nth-child(3n), .cartao-avaliacao:nth-child(even) {
-                margin-top: 0;
-            }
-
-            .navegador h1 {
-                font-size: 34px;
-            }
-
-            .texto-avaliacao {
-                max-width: none;
-            }
-        }
-    </style>
+	<meta charset="UTF-8">
+	<title>Exercícios String</title>
 </head>
 <body>
-    <header>
-        <section class="menu">
-            <ul>
-                <li><a href="#">Logo</a></li>
-                <li><a href="#">Descubra</a></li>
-                <li><a href="#">Preços</a></li>
-                <li><a href="#">Cadastre-se</a></li>
-                <li><a href="#">Login</a></li>
-            </ul>
-        </section>
-        <section class="navegador">
-            <h1>Momentos perfeitos</h1>
-            <h4>Lorem ipsum dolor</h4>
-            <form action="#" method="GET" class="search-form">
-                <input type="search" name="q" placeholder="Pesquisar..." class="search-input" aria-label="Pesquisar" required>
-                <button type="submit" class="search-button">Pesquisar</button>
-            </form>
-        </section>
-    </header>
 
-    <main>
-        <div class="galeria">
-            <h2 class="titulo-galeria">Imagens bonitas, lindas e perfeitas</h2>
-            <p class="subtitulo-galeria">Lorem ipsum dolor emet aset</p>
+	<h3>1. Padronização de nome</h3>
+	<input type="text" id="input1" placeholder="Digite uma string de teste">
+	<button id="btn1">Executar</button>
+	<p id="resultado1"></p>
 
-            <div class="imagem-galeria">
-                <div class="item-galeria">
-                    <div class="caixa-imagem"><img src="img/img/sunset.jpg" alt="Imagem 1 da galeria"></div>
-                    <span class="legenda-imagem">Lorem ipsum</span>
-                </div>
-                <div class="item-galeria">
-                    <div class="caixa-imagem"><img src="img/img/pipoca.jpg" alt="Imagem 2 da galeria"></div>
-                    <span class="legenda-imagem">Lorem ipsum</span>
-                </div>
-                <div class="item-galeria">
-                    <div class="caixa-imagem"><img src="img/img/mesa-designer.jpg" alt="Imagem 3 da galeria"></div>
-                    <span class="legenda-imagem">Lorem ipsum</span>
-                </div>
-                <div class="item-galeria">
-                    <div class="caixa-imagem"><img src="img/img/girassois.jpg" alt="Imagem 4 da galeria"></div>
-                    <span class="legenda-imagem">Lorem ipsum</span>
-                </div>
-                <div class="item-galeria">
-                    <div class="caixa-imagem"><img src="img/img/garota-silhueta.jpg" alt="Imagem 5 da galeria"></div>
-                    <span class="legenda-imagem">Lorem ipsum</span>
-                </div>
-                <div class="item-galeria">
-                    <div class="caixa-imagem"><img src="img/img/garota-feliz.jpg" alt="Imagem 6 da galeria"></div>
-                    <span class="legenda-imagem">Lorem ipsum</span>
-                </div>
-            </div>
-        </div>
+	<h3>2. Verificação de domínio de e-mail</h3>
+	<input type="text" id="input2" placeholder="Digite um email teste">
+	<button id="btn2">Executar</button>
+	<p id="resultado2"></p>
 
-        <div class="hall">
-            <div class="texto-hall">
-                <h2>Hall da fama</h2>
-                <p>Lorem ipsum dolor aset ernet dolor imi</p>
-                <nav class="botao"><a href="#">VOTE</a></nav>
-            </div>
-            <div class="imagem-hall">
-                <div class="caixa-imagem"><img src="img/img/ciclista.jpg" alt="Destaque do hall da fama"></div>
-                <span class="legenda-imagem">Lorem ipsum</span>
-            </div>
-        </div>
+	<h3>3. Contagem de caracteres</h3>
+	<input type="text" id="input3" placeholder="Digite uma frase teste">
+	<button id="btn3">Executar</button>
+	<p id="resultado3"></p>
 
-        <div class="reviews">
-            <h2 class="titulo-reviews">Reviews</h2>
+	<h3>4. Busca de palavra</h3>
+	<textarea id="input4" placeholder="Digite uma frase teste"></textarea>
+	<button id="btn4">Executar</button>
+	<p id="resultado4"></p>
 
-            <div class="cartao-avaliacao">
-                <div class="foto-perfil"><img src="img/img/garota-feliz.jpg" alt="Foto de Fulano Souza"></div>
-                <div class="conteudo-avaliacao">
-                    <h3 class="nome-utilizador">Fulano Souza</h3>
-                    <p class="texto-avaliacao">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nesciunt, dolore, consequatur? Sint odit ad impedit harum animi! Facilis quibusdam quod velit veniam corporis quasi, quas praesentium ad</p>
-                </div>
-            </div>
-            <div class="cartao-avaliacao">
-                <div class="foto-perfil"><img src="img/img/girassois.jpg" alt="Foto de Fulano Souza"></div>
-                <div class="conteudo-avaliacao">
-                    <h3 class="nome-utilizador">Fulano Souza</h3>
-                    <p class="texto-avaliacao">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nesciunt, dolore, consequatur? Sint odit ad impedit harum animi! Facilis quibusdam quod velit veniam corporis quasi, quas praesentium ad</p>
-                </div>
-            </div>
-            <div class="cartao-avaliacao">
-                <div class="foto-perfil"><img src="img/img/cabra.jpg" alt="Foto de Fulano Souza"></div>
-                <div class="conteudo-avaliacao">
-                    <h3 class="nome-utilizador">Fulano Souza</h3>
-                    <p class="texto-avaliacao">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nesciunt, dolore, consequatur? Sint odit ad impedit harum animi! Facilis quibusdam quod velit veniam corporis quasi, quas praesentium ad</p>
-                </div>
-            </div>
-            <div class="cartao-avaliacao">
-                <div class="foto-perfil"><img src="img/img/sunset.jpg" alt="Foto de Fulano Souza"></div>
-                <div class="conteudo-avaliacao">
-                    <h3 class="nome-utilizador">Fulano Souza</h3>
-                    <p class="texto-avaliacao">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nesciunt, dolore, consequatur? Sint odit ad impedit harum animi! Facilis quibusdam quod velit veniam corporis quasi, quas praesentium ad</p>
-                </div>
-            </div>
-        </div>
+	<h3>5. Extração de nome de usuário</h3>
+	<input type="text" id="input5" placeholder="Digite um email teste">
+	<button id="btn5">Executar</button>
+	<p id="resultado5"></p>
 
-        <div class="planos">
-            <h2 class="titulo-planos">Planos para todos os bolsos:</h2>
+	<h3>6. Substituição de informações</h3>
+	<textarea id="input6" placeholder="Digite uma frase teste"></textarea>
+	<button id="btn6">Executar</button>
+	<p id="resultado6"></p>
 
-            <div class="cartao-plano">
-                <h3 class="nome-plano">Silver</h3>
-                <div class="preco-plano">R$ 9,99</div>
-                <div class="lista-beneficios">
-                    <div class="item-beneficio">3x lorem</div>
-                    <div class="item-beneficio">3x lorem</div>
-                    <div class="item-beneficio">3x lorem</div>
-                </div>
-                <button class="botao-plano">Ok</button>
-            </div>
-            <div class="cartao-plano">
-                <h3 class="nome-plano">Crystal</h3>
-                <div class="preco-plano">R$ 9,99</div>
-                <div class="lista-beneficios">
-                    <div class="item-beneficio">3x lorem</div>
-                    <div class="item-beneficio">3x lorem</div>
-                    <div class="item-beneficio">3x lorem</div>
-                </div>
-                <button class="botao-plano">Ok</button>
-            </div>
-            <div class="cartao-plano">
-                <h3 class="nome-plano">Gold</h3>
-                <div class="preco-plano">R$ 9,99</div>
-                <div class="lista-beneficios">
-                    <div class="item-beneficio">3x lorem</div>
-                    <div class="item-beneficio">3x lorem</div>
-                    <div class="item-beneficio">3x lorem</div>
-                </div>
-                <button class="botao-plano">Ok</button>
-            </div>
-        </div>
-    </main>
+	<h3>7. Formatação de código de produto</h3>
+	<input type="text" id="input7" placeholder="Digite um código de teste">
+	<button id="btn7">Executar</button>
+	<p id="resultado7"></p>
 
-    <footer class="footer">
-        <span class="texto-copyright">Copyright 2019</span>
-        <div class="icones-redes-sociais">
-            <div class="caixa-icone"><img src="img/img/icone-insta.png" alt="Instagram"></div>
-            <div class="caixa-icone"><img src="img/img/icone-face.png" alt="Facebook"></div>
-            <div class="caixa-icone"><img src="img/img/icone-twitter.png" alt="Twitter"></div>
-        </div>
-    </footer>
+	<h3>8. Inversão de uma string</h3>
+	<textarea id="input8" placeholder="Digite uma frase teste"></textarea>
+	<button id="btn8">Executar</button>
+	<p id="resultado8"></p>
+
+	<h3>9. Análise de uma senha</h3>
+	<input type="text" id="input9" placeholder="Digite uma senha teste">
+	<button id="btn9">Executar</button>
+	<p id="resultado9"></p>
+
+	<h3>10. Formatação de nome completo</h3>
+	<input type="text" id="input10" placeholder="Digite um nome teste">
+	<button id="btn10">Executar</button>
+	<p id="resultado10"></p>
+
+	<script>
+			// 1
+			document.getElementById("btn1").addEventListener("click", () => {
+			  let texto = document.getElementById("input1").value;
+			  document.getElementById("resultado1").innerText = texto.trim().toLowerCase();
+			});
+
+			// 2
+			document.getElementById("btn2").addEventListener("click", () => {
+			  let email = document.getElementById("input2").value;
+			  if (email.endsWith("@exemplo.com")) {
+				document.getElementById("resultado2").innerText = "E-mail válido";
+			  } else {
+				document.getElementById("resultado2").innerText = "E-mail inválido";
+			  }
+			});
+
+			// 3
+			document.getElementById("btn3").addEventListener("click", () => {
+			  let frase = document.getElementById("input3").value;
+			  let semEspacos = frase.replaceAll(" ", "");
+			  document.getElementById("resultado3").innerText =
+				"Total: " + frase.length + " | Sem espaços: " + semEspacos.length;
+			});
+
+			// 4
+			document.getElementById("btn4").addEventListener("click", () => {
+			  let mensagem = document.getElementById("input4").value;
+			  if (mensagem.includes("JavaScript")) {
+				document.getElementById("resultado4").innerText = "A mensagem contém JavaScript.";
+			  } else {
+				document.getElementById("resultado4").innerText = "A mensagem não contém JavaScript.";
+			  }
+			});
+
+			// 5
+			document.getElementById("btn5").addEventListener("click", () => {
+			  let email = document.getElementById("input5").value;
+			  let posicao = email.indexOf("@");
+			  document.getElementById("resultado5").innerText = email.slice(0, posicao);
+			});
+
+			// 6
+			document.getElementById("btn6").addEventListener("click", () => {
+			  let mensagem = document.getElementById("input6").value;
+			  document.getElementById("resultado6").innerText = mensagem.replaceAll("João", "Maria");
+			});
+
+			// 7
+			document.getElementById("btn7").addEventListener("click", () => {
+			  let codigo = document.getElementById("input7").value.toUpperCase();
+			  document.getElementById("resultado7").innerText = codigo.slice(0, 3) + "-" + codigo.slice(3);
+			});
+
+			// 8
+			function inverterString(texto) {
+			  return texto.split("").reverse().join("");
+			}
+
+			document.getElementById("btn8").addEventListener("click", () => {
+			  let texto = document.getElementById("input8").value;
+			  document.getElementById("resultado8").innerText = inverterString(texto);
+			});
+
+			// 9
+			function validarSenha(senha) {
+			  let tamanhoOk = senha.length >= 8;
+			  let temMaiuscula = senha !== senha.toLowerCase();
+			  let temMinuscula = senha !== senha.toUpperCase();
+			  let temNumero = "0123456789".split("").some(n => senha.includes(n));
+			  return tamanhoOk && temMaiuscula && temMinuscula && temNumero;
+			}
+
+			document.getElementById("btn9").addEventListener("click", () => {
+			  let senha = document.getElementById("input9").value;
+			  document.getElementById("resultado9").innerText = validarSenha(senha);
+			});
+
+			// 10
+			function formatarNome(nome) {
+			  return nome
+				.trim()
+				.toLowerCase()
+				.split(" ")
+				.filter(palavra => palavra !== "")
+				.map(palavra => palavra[0].toUpperCase() + palavra.slice(1))
+				.join(" ");
+			}
+
+			document.getElementById("btn10").addEventListener("click", () => {
+			  let nome = document.getElementById("input10").value;
+			  document.getElementById("resultado10").innerText = formatarNome(nome);
+			});
+	</script>
+
 </body>
 </html>
