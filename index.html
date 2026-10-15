@@ -1,249 +1,110 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
-    <title>Exercícios JavaScript</title>
+    <meta charset="utf-8" />
+    <title>atividade : lab-array_aquecimento</title>
+    <script>
+const inventors = [
+            { first: 'Albert', last: 'Einstein', year: 1879, passed: 1955 },
+            { first: 'Isaac', last: 'Newton', year: 1643, passed: 1727 },
+            { first: 'Galileo', last: 'Galilei', year: 1564, passed: 1642 },
+            { first: 'Marie', last: 'Curie', year: 1867, passed: 1934 },
+            { first: 'Johannes', last: 'Kepler', year: 1571, passed: 1630 },
+            { first: 'Nicolaus', last: 'Copernicus', year: 1473, passed: 1543 },
+            { first: 'Max', last: 'Planck', year: 1858, passed: 1947 },
+            { first: 'Katherine', last: 'Blodgett', year: 1898, passed: 1979 },
+            { first: 'Ada', last: 'Lovelace', year: 1815, passed: 1852 },
+            { first: 'Sarah E.', last: 'Goode', year: 1855, passed: 1905 },
+            { first: 'Lise', last: 'Meitner', year: 1878, passed: 1968 },
+            { first: 'Hanna', last: 'Hammarström', year: 1829, passed: 1909 }
+];
+
+const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck'];
+
+// 1. Faça uma função que filtre a lista de inventores para aqueles que nasceram de 1500 a 1599.
+const nasceu = inventors.filter(inventor => inventor.year >= 1500 && inventor.year <= 1599);
+console.log("Nascidos entre 1500 e 1599:", nasceu);
+
+// 2. Faça uma função que retorne um array com os primeiros e últimos nomes dos inventores.
+function obterNomesCompletos(inventors) {
+            const nomesCompletos = [];
+            inventors.forEach(function (inventor) {
+                nomesCompletos.push(`${inventor.first} ${inventor.last}`);
+            });
+            return nomesCompletos;
+}
+console.log("Nomes completos:", obterNomesCompletos(inventors));
+
+// 3. Faça uma função que ordene o array de inventores pela data de nascimento, do mais antigo para o mais novo.
+function ordenarNascimento(inventors) {
+            const ordenados = [...inventors].sort(function (inv1, inv2) {
+                return inv1.year - inv2.year;
+            });
+            return ordenados;
+}
+console.log("Ordenados nascimento:", ordenarNascimento(inventors));
+
+// 4. Faça uma função que identifique por quantos anos todos os inventores estiveram vivos juntos.
+function calcularTotalVividos(inventors) {
+            return inventors.reduce((total, inventor) => {
+                const totalAno = (inventor.passed - inventor.year);
+                return total + totalAno;
+            }, 0);
+}
+console.log("Total vividos:", calcularTotalVividos(inventors));
+
+// 5. Faça uma função que ordene os inventores pelos anos vividos.
+function ordernarPorAno(inventors) {
+            return [...inventors].sort((inv1, inv2) => {
+                const anos1 = inv1.passed - inv1.year;
+                const anos2 = inv2.passed - inv2.year;
+                return anos1 - anos2;
+            });
+}
+console.log("Ordenados por ano vivido:", ordernarPorAno(inventors));
+
+// 6. Crie uma função que remova as redundâncias na lista abaixo:
+function removerCopias(data) {
+            const dataUnicos = [...new Set(data)];
+            return dataUnicos;
+}
+console.log("Array sem cópias:", removerCopias(data));
+    </script>
 </head>
 <body>
+    <h2>Inventores</h2>
+    <p>
+        { first: 'Albert', last: 'Einstein', year: 1879, passed: 1955 },
+        { first: 'Isaac', last: 'Newton', year: 1643, passed: 1727 },
+        { first: 'Galileo', last: 'Galilei', year: 1564, passed: 1642 },
+        { first: 'Marie', last: 'Curie', year: 1867, passed: 1934 },
+        { first: 'Johannes', last: 'Kepler', year: 1571, passed: 1630 },
+        { first: 'Nicolaus', last: 'Copernicus', year: 1473, passed: 1543 },
+        { first: 'Max', last: 'Planck', year: 1858, passed: 1947 },
+        { first: 'Katherine', last: 'Blodgett', year: 1898, passed: 1979 },
+        { first: 'Ada', last: 'Lovelace', year: 1815, passed: 1852 },
+        { first: 'Sarah E.', last: 'Goode', year: 1855, passed: 1905 },
+        { first: 'Lise', last: 'Meitner', year: 1878, passed: 1968 },
+        { first: 'Hanna', last: 'Hammarström', year: 1829, passed: 1909 }
+    </p>
+    <h2>Vetor</h2>
+    <p> ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck']</p>
 
-<!-- ============ STRING ============ -->
+    <!-- Seção criada para mostrar o resultado do JS na tela -->
+    <h2>Resultados do JavaScript</h2>
+    <div id="saida-js"></div>
 
-<h2>1. Padronização de nome</h2>
-<input type="text" id="input1" placeholder="Digite uma string de teste">
-<button id="btn1">Executar</button>
-<p id="resultado1"></p>
-
-<h2>2. Verificação de domínio de e-mail</h2>
-<input type="text" id="input2" placeholder="Digite um email teste">
-<button id="btn2">Executar</button>
-<p id="resultado2"></p>
-
-<h2>3. Contagem de caracteres</h2>
-<input type="text" id="input3" placeholder="Digite uma frase teste">
-<button id="btn3">Executar</button>
-<p id="resultado3"></p>
-
-<h2>4. Busca de palavra</h2>
-<textarea id="input4" placeholder="Digite uma frase teste"></textarea>
-<button id="btn4">Executar</button>
-<p id="resultado4"></p>
-
-<h2>5. Extração de nome de usuário</h2>
-<input type="text" id="input5" placeholder="Digite um email teste">
-<button id="btn5">Executar</button>
-<p id="resultado5"></p>
-
-<h2>6. Substituição de informações</h2>
-<textarea id="input6" placeholder="Digite uma frase teste"></textarea>
-<button id="btn6">Executar</button>
-<p id="resultado6"></p>
-
-<h2>7. Formatação de código de produto</h2>
-<input type="text" id="input7" placeholder="Digite um código de teste">
-<button id="btn7">Executar</button>
-<p id="resultado7"></p>
-
-<h2>8. Inversão de uma string</h2>
-<textarea id="input8" placeholder="Digite uma frase teste"></textarea>
-<button id="btn8">Executar</button>
-<p id="resultado8"></p>
-
-<h2>9. Análise de uma senha</h2>
-<input type="text" id="input9" placeholder="Digite uma senha teste">
-<button id="btn9">Executar</button>
-<p id="resultado9"></p>
-
-<h2>10. Formatação de nome completo</h2>
-<input type="text" id="input10" placeholder="Digite um nome teste">
-<button id="btn10">Executar</button>
-<p id="resultado10"></p>
-
-<!-- ============ NUMBER ============ -->
-
-<h2>11. Arredondamento de um número</h2>
-<input type="text" id="input11" placeholder="Digite um número (ex: 17.684)">
-<button id="btn11">Executar</button>
-<p id="resultado11"></p>
-
-<h2>12. Formatação de casas decimais</h2>
-<input type="text" id="input12" placeholder="Digite um preço (ex: 149.98765)">
-<button id="btn12">Executar</button>
-<p id="resultado12"></p>
-
-<h2>13. Conversão de string para número</h2>
-<input type="text" id="input13a" placeholder="Primeiro valor (ex: 25)">
-<input type="text" id="input13b" placeholder="Segundo valor (ex: 17.5)">
-<button id="btn13">Executar</button>
-<p id="resultado13"></p>
-
-<h2>14. Verificação de número válido</h2>
-<input type="text" id="input14" placeholder="Digite um valor (ex: 123.45)">
-<button id="btn14">Executar</button>
-<p id="resultado14"></p>
-
-<h2>15. Verificação de inteiro</h2>
-<input type="text" id="input15" placeholder="Digite um número (ex: 42.5)">
-<button id="btn15">Executar</button>
-<p id="resultado15"></p>
-
-<h2>16. Maior e menor número</h2>
-<input type="text" id="input16" placeholder="Números separados por vírgula">
-<button id="btn16">Executar</button>
-<p id="resultado16"></p>
-
-<h2>17. Geração de número aleatório</h2>
-<button id="btn17">Executar</button>
-<p id="resultado17"></p>
-
-<h2>18. Cálculo de média</h2>
-<input type="text" id="input18" placeholder="Notas separadas por vírgula">
-<button id="btn18">Executar</button>
-<p id="resultado18"></p>
-
-<h2>19. Limites numéricos</h2>
-<button id="btn19">Executar</button>
-<p id="resultado19"></p>
-
-<h2>20. Validação completa de valores numéricos</h2>
-<input type="text" id="input20" placeholder="Digite um valor (ex: 42)">
-<button id="btn20">Executar</button>
-<p id="resultado20"></p>
-
-<script>
-// Liga o botão N à função: pega o valor do campo, executa e mostra no resultado N
-function ligar(n, funcao) {
-    document.querySelector("#btn" + n).addEventListener("click", () => {
-        const campo = document.querySelector("#input" + n)
-        const valor = campo ? campo.value : ""
-        document.querySelector("#resultado" + n).textContent = funcao(valor)
-    })
-}
-
-// ============ STRING ============
-
-// 1
-ligar(1, v => v.trim().toLowerCase())
-
-// 2
-ligar(2, v => v.endsWith("@exemplo.com") ? "E-mail válido" : "E-mail inválido")
-
-// 3
-ligar(3, v => "Total: " + v.length + " | Sem espaços: " + v.replaceAll(" ", "").length)
-
-// 4
-ligar(4, v => v.includes("JavaScript")
-    ? "A mensagem contém JavaScript."
-    : "A mensagem não contém JavaScript.")
-
-// 5
-ligar(5, v => v.includes("@") ? v.slice(0, v.indexOf("@")) : "Digite um e-mail com @")
-
-// 6
-ligar(6, v => v.replaceAll("João", "Maria"))
-
-// 7
-ligar(7, v => v.toUpperCase().slice(0, 3) + "-" + v.toUpperCase().slice(3))
-
-// 8
-function inverterString(texto) {
-    return texto.split("").reverse().join("")
-}
-ligar(8, inverterString)
-
-// 9
-function validarSenha(senha) {
-    const tem8 = senha.length >= 8
-    const temMaiuscula = senha !== senha.toLowerCase()
-    const temMinuscula = senha !== senha.toUpperCase()
-    const temNumero = senha.split("").some(c => c >= "0" && c <= "9")
-    return tem8 && temMaiuscula && temMinuscula && temNumero
-}
-ligar(9, v => validarSenha(v))
-
-// 10
-function formatarNome(nome) {
-    return nome
-        .trim()
-        .split(/\s+/)
-        .map(p => p.charAt(0).toUpperCase() + p.slice(1).toLowerCase())
-        .join(" ")
-}
-ligar(10, formatarNome)
-
-// ============ NUMBER ============
-
-// 11
-ligar(11, v => {
-    const n = Number(v)
-    return "Mais próximo: " + Math.round(n) +
-           " | Para baixo: " + Math.floor(n) +
-           " | Para cima: " + Math.ceil(n)
-})
-
-// 12
-ligar(12, v => Number(v).toFixed(2))
-
-// 13 (dois campos, por isso é separado)
-document.querySelector("#btn13").addEventListener("click", () => {
-    const a = Number(document.querySelector("#input13a").value)
-    const b = Number(document.querySelector("#input13b").value)
-    document.querySelector("#resultado13").textContent =
-        "Soma: " + (a + b) +
-        " | Diferença: " + (a - b) +
-        " | Produto: " + (a * b) +
-        " | Quociente: " + (a / b)
-})
-
-// 14
-ligar(14, v => (v.trim() !== "" && !Number.isNaN(Number(v)))
-    ? "Valor numérico válido"
-    : "Valor inválido")
-
-// 15
-ligar(15, v => Number.isInteger(Number(v)) ? "O número é inteiro." : "O número não é inteiro.")
-
-// 16
-ligar(16, v => {
-    const numeros = v.split(",").map(Number)
-    return "Maior: " + Math.max(...numeros) + " | Menor: " + Math.min(...numeros)
-})
-
-// 17
-function gerarNumero() {
-    return Math.floor(Math.random() * 100) + 1
-}
-ligar(17, () => gerarNumero())
-
-// 18
-ligar(18, v => {
-    const notas = v.split(",").map(Number)
-    const soma = notas.reduce((total, nota) => total + nota, 0)
-    return "Média: " + (soma / notas.length).toFixed(2)
-})
-
-// 19
-ligar(19, () =>
-    "Maior inteiro seguro: " + Number.MAX_SAFE_INTEGER +
-    " | Menor inteiro seguro: " + Number.MIN_SAFE_INTEGER +
-    " | Maior valor finito: " + Number.MAX_VALUE)
-
-// 20
-function analisarNumero(valor) {
-    return {
-        numero: typeof valor === "number" && !Number.isNaN(valor),
-        inteiro: Number.isInteger(valor),
-        finito: Number.isFinite(valor),
-        seguro: Number.isSafeInteger(valor)
-    }
-}
-ligar(20, v => {
-    const r = analisarNumero(Number(v))
-    return "É número: " + r.numero +
-           " | Inteiro: " + r.inteiro +
-           " | Finito: " + r.finito +
-           " | Seguro: " + r.seguro
-})
-</script>
-
+    <script>
+                // Esse pequeno script joga os resultados das funções na tela
+                window.onload = function() {
+                    const div = document.getElementById('saida-js');
+                    div.innerHTML = `
+                        <p><b>1. Nascidos entre 1500 e 1599:</b> ${nasceu.map(i => i.first + ' ' + i.last).join(', ')}</p>
+                        <p><b>2. Nomes completos:</b> ${obterNomesCompletos(inventors).join(', ')}</p>
+                        <p><b>4. Total de anos vividos somados:</b> ${calcularTotalVividos(inventors)}</p>
+                        <p><b>6. Vetor sem cópias:</b> ${removerCopias(data).join(', ')}</p>
+                    `;
+                }
+    </script>
 </body>
 </html>
